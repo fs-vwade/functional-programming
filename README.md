@@ -9,8 +9,8 @@ In this TDD set, you'll learn some problem solving strategies that you'll be usi
 3. In your terminal, run `npm install`.
 4. In your terminal, run `npm test`.
 5. Edit `script.js` until you are passing all test cases!
-6. _(Optional)_ You can change `describe(...)` to `describe.only(...)` in `script_test.js` if you'd like to only run the tests for the problem you're working on.
-7. Type `Control+C` in your terminal to close the Mocha process once you are done testing.
+6. _(Optional)_ You can change `describe(...)` to `describe.only(...)` in `script.test.js` if you'd like to only run the tests for the problem you're working on.
+7. Type `Control+C` or `q` in your terminal to close the Jest process once you are done testing.
 
 ## Strategies and Prompts
 
@@ -30,7 +30,7 @@ A **guard** is a conditional usually placed at the beginning of a function that 
 
 ```js
 multiplyNumbers(3, 6); // >>> 18
-multiplyNumbers("not a number", 6); // >>> "error"
+multiplyNumbers('not a number', 6); // >>> "error"
 ```
 
 ### vote
@@ -47,8 +47,8 @@ vote(12); // >>> "You must be 18 or older to vote."
 `concatenateStrings(a: any, b: any)` returns the two given strings concatenated together unless either `a` _or_ `b` is not a string, in which case the string `"error"` is returned.
 
 ```js
-concatenateStrings("hello", "world"); // >>> "helloworld"
-concatenateStrings("hello", 15); // >>> "error"
+concatenateStrings('hello', 'world'); // >>> "helloworld"
+concatenateStrings('hello', 15); // >>> "error"
 ```
 
 ## Accumulator Variable
@@ -120,7 +120,7 @@ findMax([3, 3, 3]); // >>> 3
 
 ```js
 findLongestString([]); // >>> ""
-findLongestString(["a", "bc", "def", "gh"]); // >>> "def"
+findLongestString(['a', 'bc', 'def', 'gh']); // >>> "def"
 ```
 
 ### countPresent
@@ -137,9 +137,9 @@ countPresent([true, true, false, false, true]); // >>> 3
 In DNA strings, the symbols `A` and `T` are complements of each other, and `C` and `G` are complements. `getDnaComplement(dna: string)` receives one side of the DNA strand and returns the complementary string.
 
 ```js
-getDnaComplement(""); // >>> ""
-getDnaComplement("ATAT"); // >>> "TATA"
-getDnaComplement("GTCA"); // >>> "CAGT";
+getDnaComplement(''); // >>> ""
+getDnaComplement('ATAT'); // >>> "TATA"
+getDnaComplement('GTCA'); // >>> "CAGT";
 ```
 
 ## Return Timing
@@ -151,16 +151,16 @@ Almost all of the functions we've seen so far return something at the very end. 
 `isSongInPlaylist(song: string, playlist: string[])` returns whether the given song can be found in the given playlist. You can assume that the song will be nonempty.
 
 ```js
-isSongInPlaylist("Chasing Pavements", [
-  "Just Smile",
-  "Burn Options",
-  "Chasing Pavements",
-  "Industrial Now",
+isSongInPlaylist('Chasing Pavements', [
+  'Just Smile',
+  'Burn Options',
+  'Chasing Pavements',
+  'Industrial Now',
 ]); // >>> true
-isSongInPlaylist("24K Power", [
-  "Stubborn Love",
-  "Electric Heart",
-  "All I Want",
+isSongInPlaylist('24K Power', [
+  'Stubborn Love',
+  'Electric Heart',
+  'All I Want',
 ]); // >>> false
 ```
 
@@ -252,7 +252,7 @@ getAverage([10, 23, 18, -5, 28, 10]); // >>> 14
 - P = 1 cent, N = 5 cents, D = 10 cents, Q = 25 cents
 
 ```js
-countCoins(["Q", "Q", "D", "N", "N", "P", "Q"]); // >>> 96
+countCoins(['Q', 'Q', 'D', 'N', 'N', 'P', 'Q']); // >>> 96
 ```
 
 ### getPairs
@@ -260,6 +260,6 @@ countCoins(["Q", "Q", "D", "N", "N", "P", "Q"]); // >>> 96
 `getPairs(number)` returns an array of all possible pairs of integers between 1 and the given number. If the given number is not a positive integer, then the string `"error"` is returned.
 
 ```js
-getPairs("pair"); // >>> "error"
+getPairs('pair'); // >>> "error"
 getPairs(4); // >>> [[ 1, 1 ], [ 1, 2 ],  [ 1, 3 ], [ 1, 4 ],  [ 2, 2 ], [ 2, 3 ],  [ 2, 4 ], [ 3, 3 ],  [ 3, 4 ], [ 4, 4 ]]
 ```
