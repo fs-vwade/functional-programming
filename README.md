@@ -9,7 +9,7 @@ In this TDD set, you'll learn some problem solving strategies that you'll be usi
 3. In your terminal, run `npm install`.
 4. In your terminal, run `npm test`.
 5. Edit `script.js` until you are passing all test cases!
-6. _(Optional)_ You can change `describe(...)` to `describe.only(...)` in `script.test.js` if you'd like to only run the tests for the problem you're working on.
+6. Notice that only the first test is being tested at first. You can change `describe(...)` to `describe.only(...)` in `script.test.js` if you'd like to only run the tests for the problem you're working on. Remove the `.only` when you're ready to move on to the next problem.
 7. Type `Control+C` or `q` in your terminal to close the Jest process once you are done testing.
 
 ## Strategies and Prompts

@@ -14,7 +14,7 @@ function generateRandomNumberArray(low = -50, high = 50, n = 5) {
 }
 //#endregion Setup
 
-describe('multiplyNumbers', function () {
+describe.only('multiplyNumbers', function () {
   describe('works with correct types', function () {
     it('is a function', function () {
       expect(typeof code.multiplyNumbers).toBe('function');
