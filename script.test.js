@@ -2,10 +2,6 @@
 //#region Setup
 // You can safely ignore the code in this region :)
 // --------------------------
-// This line of code uses Chai, which is our assertion library.
-const { expect } = require("chai");
-
-// This imports your code so we can test it!
 const code = require("./script.js");
 
 // Helpers to generate random arrays for test cases
@@ -18,21 +14,21 @@ function generateRandomNumberArray(low = -50, high = 50, n = 5) {
 }
 //#endregion Setup
 
-describe("multiplyNumbers", function () {
+describe.only("multiplyNumbers", function () {
   describe("works with correct types", function () {
     it("is a function", function () {
-      expect(code.multiplyNumbers).to.be.a("function");
+      expect(typeof code.multiplyNumbers).toBe("function");
     });
 
     it("returns a number", function () {
-      expect(code.multiplyNumbers(1, 1)).to.be.a("number");
+      expect(typeof code.multiplyNumbers(1, 1)).toBe("number");
     });
   });
   describe("returns the correct output", function () {
     it('returns "error" if either argument is not a number', function () {
-      expect(code.multiplyNumbers("1", "1")).to.equal("error");
-      expect(code.multiplyNumbers(1, "1")).to.equal("error");
-      expect(code.multiplyNumbers("1", 1)).to.equal("error");
+      expect(code.multiplyNumbers("1", "1")).toBe("error");
+      expect(code.multiplyNumbers(1, "1")).toBe("error");
+      expect(code.multiplyNumbers("1", 1)).toBe("error");
     });
 
     describe("returns the correct product for random numbers between -50 and 50", function () {
@@ -43,7 +39,7 @@ describe("multiplyNumbers", function () {
         const expected = x * y;
         it(`correctly calculates ${x}*${y}=${expected}`, function () {
           const result = code.multiplyNumbers(x, y);
-          expect(result).to.equal(expected);
+          expect(result).toBe(expected);
         });
       }
     });
@@ -53,20 +49,20 @@ describe("multiplyNumbers", function () {
 describe("vote", function () {
   describe("works with correct types", function () {
     it("is a function", function () {
-      expect(code.vote).to.be.a("function");
+      expect(typeof code.vote).toBe("function");
     });
 
     it("returns a string", function () {
-      expect(code.vote(5)).to.be.a("string");
+      expect(typeof code.vote(5)).toBe("string");
     });
   });
   describe("returns the correct output", function () {
     it("returns the correct string when age is at least 18", function () {
-      expect(code.vote(18)).to.equal("Who would you like to vote for?");
+      expect(code.vote(18)).toBe("Who would you like to vote for?");
     });
 
     it("returns the correct string when age is under 18", function () {
-      expect(code.vote(17)).to.equal("You must be 18 or older to vote.");
+      expect(code.vote(17)).toBe("You must be 18 or older to vote.");
     });
   });
 });
@@ -74,19 +70,19 @@ describe("vote", function () {
 describe("concatenateStrings", function () {
   describe("works with correct types", function () {
     it("is a function", function () {
-      expect(code.concatenateStrings).to.be.a("function");
+      expect(typeof code.concatenateStrings).toBe("function");
     });
 
     it("returns a string", function () {
-      expect(code.concatenateStrings("a", "b")).to.be.a("string");
+      expect(typeof code.concatenateStrings("a", "b")).toBe("string");
     });
   });
 
   describe("returns the correct output", function () {
     it('returns "error" when either argument is not a string', function () {
-      expect(code.concatenateStrings(1, "1")).to.equal("error");
-      expect(code.concatenateStrings(1, 1)).to.equal("error");
-      expect(code.concatenateStrings("1", 1)).to.equal("error");
+      expect(code.concatenateStrings(1, "1")).toBe("error");
+      expect(code.concatenateStrings(1, 1)).toBe("error");
+      expect(code.concatenateStrings("1", 1)).toBe("error");
     });
 
     // Generate and test 3 random pairs of strings
@@ -95,7 +91,7 @@ describe("concatenateStrings", function () {
       const right = String(Math.random() * 9999);
       const expected = left + right;
       it(`returns ${left}+${right}=${expected}`, function () {
-        expect(code.concatenateStrings(left, right)).to.equal(expected);
+        expect(code.concatenateStrings(left, right)).toBe(expected);
       });
     }
   });
@@ -104,16 +100,16 @@ describe("concatenateStrings", function () {
 describe("sumArray", function () {
   describe("works with correct types", function () {
     it("is a function", function () {
-      expect(code.sumArray).to.be.a("function");
+      expect(typeof code.sumArray).toBe("function");
     });
     it("returns a number", function () {
       const result = code.sumArray([2]);
-      expect(result).to.be.a("number");
+      expect(typeof result).toBe("number");
     });
   });
   describe("returns the correct output", function () {
     it("returns 0 for an empty array", function () {
-      expect(code.sumArray([])).to.equal(0);
+      expect(code.sumArray([])).toBe(0);
     });
 
     // Generate and test 3 arrays of 5 random numbers between -50 and 50
@@ -124,7 +120,7 @@ describe("sumArray", function () {
       const expected = test.reduce((a, b) => a + b);
 
       it(`returns ${expected} for ${test}`, function () {
-        expect(code.sumArray(test)).to.equal(expected);
+        expect(code.sumArray(test)).toBe(expected);
       });
     }
   });
@@ -133,17 +129,17 @@ describe("sumArray", function () {
 describe("sumToN", function () {
   describe("works with correct types", function () {
     it("is a function", function () {
-      expect(code.sumToN).to.be.a("function");
+      expect(typeof code.sumToN).toBe("function");
     });
     it("returns a number", function () {
       const result = code.sumToN(10);
-      expect(result).to.be.a("number");
+      expect(typeof result).toBe("number");
     });
   });
   describe("returns the correct output", function () {
     it("returns 0 for nonpositive arguments", function () {
-      expect(code.sumToN(0)).to.equal(0);
-      expect(code.sumToN(-10)).to.equal(0);
+      expect(code.sumToN(0)).toBe(0);
+      expect(code.sumToN(-10)).toBe(0);
     });
 
     // Generate and test 3 random numbers [1,50]
@@ -152,7 +148,7 @@ describe("sumToN", function () {
       const expected = (test * (test + 1)) / 2;
 
       it(`returns ${expected} as the sum of all integers from 1 to ${test}`, function () {
-        expect(code.sumToN(test)).to.equal(expected);
+        expect(code.sumToN(test)).toBe(expected);
       });
     }
   });
@@ -161,23 +157,23 @@ describe("sumToN", function () {
 describe("factorial", function () {
   describe("works with correct types", function () {
     it("is a function", function () {
-      expect(code.factorial).to.be.a("function");
+      expect(typeof code.factorial).toBe("function");
     });
     it("returns a number", function () {
       const result = code.factorial(3);
-      expect(result).to.be.a("number");
+      expect(typeof result).toBe("number");
     });
   });
   describe("returns the correct output", function () {
     it('returns "error" if the argument is negative or not an integer', function () {
-      expect(code.factorial(1.3)).to.equal("error");
-      expect(code.factorial("10")).to.equal("error");
-      expect(code.factorial(-20)).to.equal("error");
+      expect(code.factorial(1.3)).toBe("error");
+      expect(code.factorial("10")).toBe("error");
+      expect(code.factorial(-20)).toBe("error");
     });
     it("returns the correct answer for n in [0,8]", function () {
       const expected = [1, 1, 2, 6, 24, 120, 720, 5040, 40320];
       for (let n = 0; n <= 8; n++) {
-        expect(code.factorial(n)).to.equal(expected[n]);
+        expect(code.factorial(n)).toBe(expected[n]);
       }
     });
   });
@@ -186,25 +182,25 @@ describe("factorial", function () {
 describe("buildNArray", function () {
   describe("works with correct types", function () {
     it("is a function", function () {
-      expect(code.buildNArray).to.be.a("function");
+      expect(typeof code.buildNArray).toBe("function");
     });
     it("returns an array of numbers", function () {
       const result = code.buildNArray(5);
-      expect(result).to.be.an("array");
-      expect(result).to.have.lengthOf(5);
+      expect(Array.isArray(result)).toBe(true);
+      expect(result).toHaveLength(5);
       for (const number of result) {
-        expect(number).to.be.a("number");
+        expect(typeof number).toBe("number");
       }
     });
   });
   describe("returns the correct output", function () {
     it('returns "error" if the argument is not an integer', function () {
-      expect(code.buildNArray(3.6)).to.equal("error");
-      expect(code.buildNArray("200")).to.equal("error");
+      expect(code.buildNArray(3.6)).toBe("error");
+      expect(code.buildNArray("200")).toBe("error");
     });
     it("returns an empty array for nonpositive arguments", function () {
-      expect(code.buildNArray(0)).to.eql([]);
-      expect(code.buildNArray(-82)).to.eql([]);
+      expect(code.buildNArray(0)).toEqual([]);
+      expect(code.buildNArray(-82)).toEqual([]);
     });
 
     // Generate and test 3 random numbers in [1,10]
@@ -215,7 +211,7 @@ describe("buildNArray", function () {
       const expected = Array.from({ length: test }, (_, i) => i + 1);
 
       it(`returns ${expected} for ${test}`, function () {
-        expect(code.buildNArray(test)).to.eql(expected);
+        expect(code.buildNArray(test)).toEqual(expected);
       });
     }
   });
@@ -224,16 +220,16 @@ describe("buildNArray", function () {
 describe("findMax", function () {
   describe("works with correct types", function () {
     it("is a function", function () {
-      expect(code.findMax).to.be.a("function");
+      expect(typeof code.findMax).toBe("number");
     });
     it("returns a number", function () {
       const result = code.findMax([1, 2]);
-      expect(result).to.be.a("number");
+      expect(typeof result).toBe("number");
     });
   });
   describe("returns the correct output", function () {
     it("returns -Infinity for an empty array", function () {
-      expect(code.findMax([])).to.equal(-Infinity);
+      expect(code.findMax([])).toBe(-Infinity);
     });
 
     // Generate and test 3 random arrays
@@ -244,7 +240,7 @@ describe("findMax", function () {
       const expected = test.reduce((a, b) => (b > a ? b : a));
 
       it(`returns ${expected} for ${test}`, function () {
-        expect(code.findMax(test)).to.equal(expected);
+        expect(code.findMax(test)).toBe(expected);
       });
     }
   });
@@ -253,16 +249,16 @@ describe("findMax", function () {
 describe("findLongestString", function () {
   describe("works with correct types", function () {
     it("is a function", function () {
-      expect(code.findLongestString).to.be.a("function");
+      expect(typeof code.findLongestString).toBe("function");
     });
     it("returns a string", function () {
       const result = code.findLongestString(["a"]);
-      expect(result).to.be.a("string");
+      expect(typeof result).toBe("string");
     });
   });
   describe("returns the correct output", function () {
     it("returns an empty string for an empty array", function () {
-      expect(code.findLongestString([])).to.equal("");
+      expect(code.findLongestString([])).toBe("");
     });
 
     // Generate and test 3 random arrays
@@ -272,7 +268,7 @@ describe("findLongestString", function () {
       const expected = test.reduce((a, b) => (b.length > a.length ? b : a));
 
       it(`returns ${expected} for ${test}`, function () {
-        expect(code.findLongestString(test)).to.equal(expected);
+        expect(code.findLongestString(test)).toBe(expected);
       });
     }
   });
@@ -281,16 +277,16 @@ describe("findLongestString", function () {
 describe("countPresent", function () {
   describe("works with correct types", function () {
     it("is a function", function () {
-      expect(code.countPresent).to.be.a("function");
+      expect(typeof code.countPresent).toBe("function");
     });
     it("returns a number", function () {
       const result = code.countPresent([true, false, true]);
-      expect(result).to.be.a("number");
+      expect(typeof result).toBe("number");
     });
   });
   describe("returns the correct output", function () {
     it("returns 0 for an empty array", function () {
-      expect(code.countPresent([])).to.equal(0);
+      expect(code.countPresent([])).toBe(0);
     });
 
     // Generate and test 3 random arrays
@@ -300,7 +296,7 @@ describe("countPresent", function () {
       const expected = test.reduce((a, b) => (b ? a + 1 : a), 0);
 
       it(`returns ${expected} for ${test}`, function () {
-        expect(code.countPresent(test)).to.equal(expected);
+        expect(code.countPresent(test)).toBe(expected);
       });
     }
   });
@@ -309,20 +305,20 @@ describe("countPresent", function () {
 describe("getDnaComplement", function () {
   describe("works with correct types", function () {
     it("is a function", function () {
-      expect(code.getDnaComplement).to.be.a("function");
+      expect(typeof code.getDnaComplement).toBe("function");
     });
     it("returns a string", function () {
       const result = code.getDnaComplement("ATCG");
-      expect(result).to.be.a("string");
+      expect(typeof result).toBe("string");
     });
   });
   describe("returns the correct output", function () {
     it("returns an empty string when given an empty string", function () {
-      expect(code.getDnaComplement("")).to.equal("");
+      expect(code.getDnaComplement("")).toBe("");
     });
 
     it("returns the correct DNA complement of the argument", function () {
-      expect(code.getDnaComplement("ATCG")).to.equal("TAGC");
+      expect(code.getDnaComplement("ATCG")).toBe("TAGC");
     });
   });
 });
@@ -330,19 +326,19 @@ describe("getDnaComplement", function () {
 describe("isSongInPlaylist", function () {
   describe("works with correct types", function () {
     it("is a function", function () {
-      expect(code.isSongInPlaylist).to.be.a("function");
+      expect(typeof code.isSongInPlaylist).toBe("function");
     });
     it("returns a boolean", function () {
       const result = code.isSongInPlaylist("a", ["a", "b"]);
-      expect(result).to.be.a("boolean");
+      expect(typeof result).toBe("boolean");
     });
   });
   describe("returns the correct output", function () {
     it("returns false when the playlist is empty", function () {
-      expect(code.isSongInPlaylist("a", [])).to.equal(false);
+      expect(code.isSongInPlaylist("a", [])).toBe(false);
     });
     it("returns false when the given song is not in the playlist", function () {
-      expect(code.isSongInPlaylist("a", ["b", "c"])).to.equal(false);
+      expect(code.isSongInPlaylist("a", ["b", "c"])).toBe(false);
     });
 
     // Generate and test 3 random playlists
@@ -352,7 +348,7 @@ describe("isSongInPlaylist", function () {
       const target = test[Math.floor(Math.random() * test.length)];
 
       it(`returns true when checking if ${target} is in ${test}`, function () {
-        expect(code.isSongInPlaylist(target, test)).to.equal(true);
+        expect(code.isSongInPlaylist(target, test)).toBe(true);
       });
     }
   });
@@ -361,20 +357,20 @@ describe("isSongInPlaylist", function () {
 describe("isAllEven", function () {
   describe("works with correct types", function () {
     it("is a function", function () {
-      expect(code.isAllEven).to.be.a("function");
+      expect(typeof code.isAllEven).toBe("function");
     });
     it("returns a boolean", function () {
       const result = code.isAllEven([1, 2, 3, 4, 5]);
-      expect(result).to.be.a("boolean");
+      expect(typeof result).toBe("boolean");
     });
   });
   describe("returns the correct output", function () {
     it("returns false when not all numbers are even", function () {
-      expect(code.isAllEven([1, 2, 2, 3, 5, 7, 6])).to.equal(false);
+      expect(code.isAllEven([1, 2, 2, 3, 5, 7, 6])).toBe(false);
     });
 
     it("returns true when all numbers are even", function () {
-      expect(code.isAllEven([2, 16, 12, 4, 82])).to.equal(true);
+      expect(code.isAllEven([2, 16, 12, 4, 82])).toBe(true);
     });
   });
 });
@@ -382,11 +378,11 @@ describe("isAllEven", function () {
 describe("makeBoard", function () {
   describe("works with correct types", function () {
     it("is a function", function () {
-      expect(code.makeBoard).to.be.a("function");
+      expect(typeof code.makeBoard).toBe("function");
     });
     it("returns an array", function () {
       const result = code.makeBoard(3, 4);
-      expect(result).to.be.an("array");
+      expect(Array.isArray(result)).toBe(true);
     });
   });
   describe("returns the correct output", function () {
@@ -401,7 +397,7 @@ describe("makeBoard", function () {
 
       it(`returns the correct board of size ${cols}x${rows}`, function () {
         const result = code.makeBoard(cols, rows);
-        expect(result).to.eql(expected);
+        expect(result).toEqual(expected);
       });
     }
   });
@@ -410,12 +406,12 @@ describe("makeBoard", function () {
 describe("evenAndOdd", function () {
   describe("works with correct types", function () {
     it("is a function", function () {
-      expect(code.evenAndOdd).to.be.a("function");
+      expect(typeof code.evenAndOdd).toBe("function");
     });
     it("returns an array of length 2", function () {
       const result = code.evenAndOdd([1, 2, 3, 4, 5]);
-      expect(result).to.be.an("array");
-      expect(result).to.have.lengthOf(2);
+      expect(Array.isArray(result)).toBe(true);
+      expect(result).toHaveLength(2);
     });
   });
   describe("returns the correct output", function () {
@@ -429,7 +425,7 @@ describe("evenAndOdd", function () {
       ];
 
       it(`returns ${expected} for ${test}`, function () {
-        expect(code.evenAndOdd(test)).to.eql(expected);
+        expect(code.evenAndOdd(test)).toEqual(expected);
       });
     }
   });
@@ -438,21 +434,21 @@ describe("evenAndOdd", function () {
 describe("exponentiate", function () {
   describe("works with correct types", function () {
     it("is a function", function () {
-      expect(code.exponentiate).to.be.a("function");
+      expect(typeof code.exponentiate).toBe("function");
     });
     it("returns a number", function () {
       const result = code.exponentiate(2, 3);
-      expect(result).to.be.a("number");
+      expect(typeof result).toBe("number");
     });
   });
   describe("returns the correct output", function () {
     it('returns "error" if either argument is not an integer', function () {
-      expect(code.exponentiate(5.3, 2)).to.equal("error");
-      expect(code.exponentiate(5, 2.3)).to.equal("error");
-      expect(code.exponentiate(5, 3.9)).to.equal("error");
-      expect(code.exponentiate("5", 2)).to.equal("error");
-      expect(code.exponentiate(5, "2")).to.equal("error");
-      expect(code.exponentiate("5", "2")).to.equal("error");
+      expect(code.exponentiate(5.3, 2)).toBe("error");
+      expect(code.exponentiate(5, 2.3)).toBe("error");
+      expect(code.exponentiate(5, 3.9)).toBe("error");
+      expect(code.exponentiate("5", 2)).toBe("error");
+      expect(code.exponentiate(5, "2")).toBe("error");
+      expect(code.exponentiate("5", "2")).toBe("error");
     });
 
     // Generate and test 3 random pairs of numbers
@@ -462,7 +458,7 @@ describe("exponentiate", function () {
       const expected = b ** p;
 
       it(`returns ${b}^${p}=${expected}`, function () {
-        expect(code.exponentiate(b, p)).to.equal(expected);
+        expect(code.exponentiate(b, p)).toBe(expected);
       });
     }
   });
@@ -471,17 +467,17 @@ describe("exponentiate", function () {
 describe("onlyOdds", function () {
   describe("works with correct types", function () {
     it("is a function", function () {
-      expect(code.onlyOdds).to.be.a("function");
+      expect(typeof code.onlyOdds).toBe("function");
     });
     it("returns a number", function () {
       const result = code.onlyOdds(10);
-      expect(result).to.be.a("number");
+      expect(typeof result).toBe("number");
     });
   });
   describe("returns the correct output", function () {
     it("returns 0 for arguments less than 1", function () {
-      expect(code.onlyOdds(0)).to.equal(0);
-      expect(code.onlyOdds(-382)).to.equal(0);
+      expect(code.onlyOdds(0)).toBe(0);
+      expect(code.onlyOdds(-382)).toBe(0);
     });
 
     // Generate and test 3 random numbers
@@ -490,7 +486,7 @@ describe("onlyOdds", function () {
       const expected = Math.ceil(n / 2) ** 2;
 
       it(`returns ${expected} as the sum of all odd numbers from 1 to ${n}`, function () {
-        expect(code.onlyOdds(n)).to.equal(expected);
+        expect(code.onlyOdds(n)).toBe(expected);
       });
     }
   });
@@ -499,16 +495,16 @@ describe("onlyOdds", function () {
 describe("bacteriaTime", function () {
   describe("works with correct types", function () {
     it("is a function", function () {
-      expect(code.bacteriaTime).to.be.a("function");
+      expect(typeof code.bacteriaTime).toBe("function");
     });
     it("returns a number", function () {
       const result = code.bacteriaTime(10, 120);
-      expect(result).to.be.a("number");
+      expect(typeof result).toBe("number");
     });
   });
   describe("returns the correct output", function () {
     it('returns "target must be larger than current" if target is smaller than current', function () {
-      expect(code.bacteriaTime(10, 5)).to.equal(
+      expect(code.bacteriaTime(10, 5)).toBe(
         "target must be larger than current"
       );
     });
@@ -519,7 +515,7 @@ describe("bacteriaTime", function () {
       const target = generateRandomInteger(500, 5000);
       const expected = Math.ceil(Math.log2(target / current)) * 20;
       it(`returns ${expected} minutes for ${current} to double to ${target}`, function () {
-        expect(code.bacteriaTime(current, target)).to.equal(expected);
+        expect(code.bacteriaTime(current, target)).toBe(expected);
       });
     }
   });
@@ -528,16 +524,16 @@ describe("bacteriaTime", function () {
 describe("getAverage", function () {
   describe("works with correct types", function () {
     it("is a function", function () {
-      expect(code.getAverage).to.be.a("function");
+      expect(typeof code.getAverage).toBe("function");
     });
     it("returns a number", function () {
       const result = code.getAverage([1, 2, 3]);
-      expect(result).to.be.a("number");
+      expect(typeof result).toBe("number");
     });
   });
   describe("returns the correct output", function () {
     it("returns null for an empty array", function () {
-      expect(code.getAverage([])).to.be.null;
+      expect(code.getAverage([])).toBeNull();
     });
 
     // Generate and test 3 random arrays
@@ -545,7 +541,7 @@ describe("getAverage", function () {
       const test = generateRandomNumberArray();
       const expected = test.reduce((a, b) => a + b) / test.length;
       it(`returns ${expected} as the average of ${test}`, function () {
-        expect(code.getAverage(test)).to.equal(expected);
+        expect(code.getAverage(test)).toBe(expected);
       });
     }
   });
@@ -554,20 +550,20 @@ describe("getAverage", function () {
 describe("countCoins", function () {
   describe("works with correct types", function () {
     it("is a function", function () {
-      expect(code.countCoins).to.be.a("function");
+      expect(typeof code.countCoins).toBe("function");
     });
     it("returns a number", function () {
       const result = code.countCoins(["P", "N", "D", "Q"]);
-      expect(result).to.be.a("number");
+      expect(typeof result).toBe("number");
     });
   });
   describe("returns the correct output", function () {
     it("returns 0 for an empty array", function () {
-      expect(code.countCoins([])).to.equal(0);
+      expect(code.countCoins([])).toBe(0);
     });
 
     it(`returns 96 for ${["Q", "Q", "D", "N", "N", "P", "Q"]}`, function () {
-      expect(code.countCoins(["Q", "Q", "D", "N", "N", "P", "Q"])).to.equal(96);
+      expect(code.countCoins(["Q", "Q", "D", "N", "N", "P", "Q"])).toBe(96);
     });
   });
 });
@@ -575,19 +571,19 @@ describe("countCoins", function () {
 describe("getPairs", function () {
   describe("works with correct types", function () {
     it("is a function", function () {
-      expect(code.getPairs).to.be.a("function");
+      expect(typeof code.getPairs).toBe("function");
     });
     it("returns an array", function () {
       const result = code.getPairs(4);
-      expect(result).to.be.an("array");
+      expect(Array.isArray(result)).toBe(true);
     });
   });
   describe("returns the correct output", function () {
     it('returns "error" if the argument is not a positive integer', function () {
-      expect(code.getPairs(-20)).to.equal("error");
-      expect(code.getPairs(0)).to.equal("error");
-      expect(code.getPairs(2.9)).to.equal("error");
-      expect(code.getPairs("pair")).to.equal("error");
+      expect(code.getPairs(-20)).toBe("error");
+      expect(code.getPairs(0)).toBe("error");
+      expect(code.getPairs(2.9)).toBe("error");
+      expect(code.getPairs("pair")).toBe("error");
     });
 
     it(`returns the correct pairs for 4`, function () {
@@ -604,7 +600,7 @@ describe("getPairs", function () {
         [4, 4],
       ];
 
-      expect(code.getPairs(4)).to.eql(expected);
+      expect(code.getPairs(4)).toEqual(expected);
     });
   });
 });

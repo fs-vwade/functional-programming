@@ -8,9 +8,9 @@ In this TDD set, you'll learn some problem solving strategies that you'll be usi
 2. Navigate your terminal to your local repo folder.
 3. In your terminal, run `npm install`.
 4. In your terminal, run `npm test`.
-5. Edit `script.js` until you are passing all test cases!
-6. _(Optional)_ You can change `describe(...)` to `describe.only(...)` in `script_test.js` if you'd like to only run the tests for the problem you're working on.
-7. Type `Control+C` in your terminal to close the Mocha process once you are done testing.
+5. Notice that only the first test will run. This is due to the `describe.only` in `script.test.js`. When you are ready to move on the the next problem, remove `.only` from the current test and change the next test to `describe.only`.
+6. Edit `script.js` until you are passing all test cases!
+7. Press `Control+C` or `q` in your terminal to close the Jest process once you are done testing.
 
 ## Strategies and Prompts
 

@@ -4,8 +4,8 @@
 
 /**
  * @param {number} a
- * @param {number} b 
- * @returns the product of `a` and `b` 
+ * @param {number} b
+ * @returns the product of `a` and `b`
  * _unless_ either of the parameters is not a number,
  * in which case the string `"error"` is returned.
  */
@@ -24,7 +24,7 @@ function multiplyNumbers(a, b) {
 // --------------------------
 
 /**
- * @param {int[]} nums 
+ * @param {int[]} nums
  * @returns the sum of the given array of numbers
  */
 function sumArray(nums) {
@@ -42,7 +42,7 @@ function sumArray(nums) {
 // --------------------------
 
 /**
- * @param {int[]} nums 
+ * @param {int[]} nums
  * @returns the greatest number in the given array
  */
 function findMax(nums) {
@@ -62,8 +62,8 @@ function findMax(nums) {
 // --------------------------
 
 /**
- * @param {string} song 
- * @param {string[]} playlist 
+ * @param {string} song
+ * @param {string[]} playlist
  * @returns whether the given song can be found in the playlist
  */
 function isSongInPlaylist(song, playlist) {
@@ -82,8 +82,8 @@ function isSongInPlaylist(song, playlist) {
 // --------------------------
 
 /**
- * @param {number} cols 
- * @param {number} rows 
+ * @param {number} cols
+ * @param {number} rows
  * @returns a 2D array of the given dimensions filled with "-"
  */
 function makeBoard(cols, rows) {
