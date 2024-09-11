@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/FullstackAcademy/Foundations.TDD.Strategies#readme",
   "devDependencies": {
-    "jest": "^29.5.0"
+    "jest": "^29.7.0"
   }
 }
