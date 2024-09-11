@@ -10,8 +10,8 @@
  * in which case the string `"error"` is returned.
  */
 function multiplyNumbers(a, b) {
-  if (typeof a !== 'number' || typeof b !== 'number') {
-    return 'error';
+  if (typeof a !== "number" || typeof b !== "number") {
+    return "error";
   }
 
   return a * b;
@@ -91,7 +91,7 @@ function makeBoard(cols, rows) {
   for (let r = 0; r < rows; r++) {
     const row = [];
     for (let c = 0; c < cols; c++) {
-      row.push('-');
+      row.push("-");
     }
     board.push(row);
   }
