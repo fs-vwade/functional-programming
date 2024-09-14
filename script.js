@@ -247,6 +247,21 @@ function makeBoard(cols, rows) {
 	return board;
 }
 
+function evenAndOdd(arr) {
+	let evens = [];
+	let odds = [];
+
+	for (const n in arr) {
+		if (n % 2 === 0) {
+			evens.push(n);
+		} else {
+			odds.push(n);
+		}
+	}
+
+	return [evens, odds];
+}
+
 //#endregion Nested Loops and Arrays
 
 // --------------------------
@@ -275,7 +290,7 @@ module.exports = {
 	isSongInPlaylist,
 	isAllEven,
 	makeBoard,
-	//evenAndOdd,
+	evenAndOdd,
 	//exponentiate,
 	//onlyOdds,
 	//bacteriaTime,
