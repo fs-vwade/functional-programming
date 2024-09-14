@@ -62,6 +62,56 @@ function sumArray(nums) {
 	return total;
 }
 
+/**
+ *
+ * @param {number} n
+ */
+function sumToN(n) {
+	let sum = 0;
+	while (0 < n) {
+		sum += n--;
+	}
+	return sum;
+}
+/**
+ *
+ * @param {number} n
+ */
+function factorial(n) {
+	let mul = 1;
+
+	if (!(0 <= n && Number.isInteger(n))) {
+		return "error";
+	}
+
+	while (1 < n) {
+		mul *= n--;
+	}
+
+	return mul;
+}
+/**
+ *
+ * @param {number} n
+ */
+function buildNArray(n) {
+	let arr = [];
+
+	if (!Number.isInteger(n)) {
+		return "error";
+	}
+
+	{
+		let i = 0;
+
+		while (i++ < n) {
+			arr.push(i);
+		}
+	}
+
+	return arr;
+}
+
 //#endregion Accumulator Variable
 
 // --------------------------
@@ -82,34 +132,39 @@ function findMax(nums) {
 	return max;
 }
 
-//**
+/**
  *
- * @param {number} n
+ * @param {string[]} arr
  */
-function sumToN(n) {
-	let sum = 0;
-	if (0 < n) {
-		let i = 0;
-		while (i++ < n) {
-			sum += i;
+function findLongestString(arr) {
+	let longest = "";
+
+	for (const str of arr) {
+		if (str.length < longest.length) {
+			longest = str;
 		}
 	}
-	return sum;
-}
-//**
- *
- * @param {number} n
- */
-function factorial(n) {
 
+	return longest;
 }
-//**
+/**
  *
- * @param {number} n
+ * @param {boolean[]} attendance
  */
-function buildNArray(n) {
+function countPresent(attendance) {
+	let trues = 0;
 
+	for (const student of attendance) {
+		trues += student;
+	}
+
+	return trues;
 }
+/**
+ *
+ * @param {string} dna
+ */
+function getDnaComplement(dna) {}
 
 //#endregion Conditional Accumulation
 
@@ -176,9 +231,9 @@ module.exports = {
 	factorial,
 	buildNArray,
 	findMax,
-	//findLongestString,
-	//countPresent,
-	//getDnaComplement,
+	findLongestString,
+	countPresent,
+	getDnaComplement,
 	isSongInPlaylist,
 	//isAllEven,
 	makeBoard,

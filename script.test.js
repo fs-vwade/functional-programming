@@ -126,7 +126,7 @@ describe("sumArray", function () {
 	});
 });
 
-describe.only("sumToN", function () {
+describe("sumToN", function () {
 	describe("works with correct types", function () {
 		it("is a function", function () {
 			expect(typeof code.sumToN).toBe("function");
