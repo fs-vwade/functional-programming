@@ -309,6 +309,7 @@ function bacteriaTime(current, target) {
 }
 
 function getAverage(nums) {
+	if (!nums.length) return null;
 	let sum = 0;
 
 	for (const n of nums) {
@@ -335,11 +336,12 @@ function countCoins(coins) {
 }
 
 function getPairs(n) {
-	let pairs = [];
 	if (!(Number.isInteger(n) && 0 < n)) return "error";
 
-	for (let i = 1; i < n; i++) {
-		for (let j = i; j < n; i++) {
+	let pairs = [];
+
+	for (let i = 1; i <= n; i++) {
+		for (let j = i; j <= n; j++) {
 			const pair = [i, j];
 			pairs.push(pair);
 		}
