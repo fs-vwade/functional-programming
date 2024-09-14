@@ -300,7 +300,7 @@ function bacteriaTime(current, target) {
 	if (target < current) return "target must be larger than current";
 
 	while (current < target) {
-		current += current;
+		current <<= 1;
 		duplications += 1;
 	}
 
