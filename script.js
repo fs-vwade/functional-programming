@@ -251,7 +251,8 @@ function evenAndOdd(arr) {
 	let evens = [];
 	let odds = [];
 
-	for (const n in arr) {
+	for (let i = 0; i < arr.length; i++) {
+		const n = arr[i];
 		if (n % 2 === 0) {
 			evens.push(n);
 		} else {
