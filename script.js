@@ -268,6 +268,85 @@ function evenAndOdd(arr) {
 //#region Practice
 // --------------------------
 
+function exponentiate(b, p) {
+	let product = 1;
+	let i = p < 0 ? -p : p;
+
+	if (!(Number.isInteger(b) && Number.isInteger(p))) return "error";
+
+	while (i--) {
+		product *= b;
+	}
+
+	return p < 0 ? 1 / product : product;
+}
+
+function onlyOdds(n) {
+	let i = 1;
+	let sum = 0;
+
+	while (i <= n) {
+		sum += i;
+		i += 2;
+	}
+
+	return sum;
+}
+
+function bacteriaTime(current, target) {
+	if (target < current) return "target must be larger than current";
+
+	const exponent = Math.log(target) / Math.log(current);
+	let duplications = 0;
+	while (current <= target / 2) {
+		current *= 2;
+		duplications += 1;
+	}
+
+	duplications += current < target ? current / target - 1 : 0;
+
+	return 20 * duplications;
+}
+
+function getAverage(nums) {
+	let sum = 0;
+
+	for (const n of nums) {
+		sum += n;
+	}
+
+	return sum / nums.length;
+}
+
+function countCoins(coins) {
+	let value = 0;
+	const key = {
+		Q: 25,
+		D: 10,
+		N: 5,
+		P: 1,
+	};
+
+	for (const coin of coins) {
+		value += key[coin];
+	}
+
+	return value;
+}
+
+function getPairs(n) {
+	let pairs = [];
+	if (!(Number.isInteger(n) && 0 < n)) return "error";
+
+	for (let i = 1; i < n; i++) {
+		for (let j = i; j < n; i++) {
+			const pair = [i, j];
+			pairs.push(pair);
+		}
+	}
+	return pairs;
+}
+
 //#endregion Practice
 
 /**
@@ -291,10 +370,10 @@ module.exports = {
 	isAllEven,
 	makeBoard,
 	evenAndOdd,
-	//exponentiate,
-	//onlyOdds,
-	//bacteriaTime,
-	//getAverage,
-	//countCoins,
-	//getPairs,
+	exponentiate,
+	onlyOdds,
+	bacteriaTime,
+	getAverage,
+	countCoins,
+	getPairs,
 };
