@@ -140,7 +140,7 @@ function findLongestString(arr) {
 	let longest = "";
 
 	for (const str of arr) {
-		if (str.length < longest.length) {
+		if (longest.length < str.length) {
 			longest = str;
 		}
 	}
@@ -163,8 +163,32 @@ function countPresent(attendance) {
 /**
  *
  * @param {string} dna
+ *@returns the complimentary DNA strand as a string
+ *
+ * In DNA strings, the symbols A and T are complements of each other, and C and G are complements. getDnaComplement(dna: string) receives one side of the DNA strand and returns the complementary string.
  */
-function getDnaComplement(dna) {}
+function getDnaComplement(dna) {
+	dna = Array.from(dna.toUpperCase());
+
+	for (let i = 0; i < dna.length; i++) {
+		switch (dna[i]) {
+			case "A":
+				dna[i] = "T";
+				break;
+			case "T":
+				dna[i] = "A";
+				break;
+			case "C":
+				dna[i] = "G";
+				break;
+			case "G":
+				dna[i] = "C";
+				break;
+		}
+	}
+
+	return dna.join("");
+}
 
 //#endregion Conditional Accumulation
 
