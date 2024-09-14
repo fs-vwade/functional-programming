@@ -10,11 +10,38 @@
  * in which case the string `"error"` is returned.
  */
 function multiplyNumbers(a, b) {
-  if (typeof a !== "number" || typeof b !== "number") {
-    return "error";
-  }
+	if (typeof a !== "number" || typeof b !== "number") {
+		return "error";
+	}
 
-  return a * b;
+	return a * b;
+}
+
+/**
+ *
+ * @param {number} age
+ * @returns "Who would you like to vote for?" if the given age is at least 18; otherwise it returns "You must be 18 or older to vote."
+ */
+function vote(age) {
+	if (age < 18) {
+		return "You must be 18 or older to vote.";
+	} else {
+		return "Who would you like to vote for?";
+	}
+}
+
+/**
+ *
+ * @param {*} a
+ * @param {*} b
+ * @returns the two given strings concatenated together unless either a or b is not a string, in which case the string "error" is returned.
+ *
+ */
+function concatenateStrings(a, b) {
+	if (!(typeof a === "string" && typeof b === "string")) {
+		return "error";
+	}
+	return a + b;
 }
 
 //#endregion Guard
@@ -28,11 +55,11 @@ function multiplyNumbers(a, b) {
  * @returns the sum of the given array of numbers
  */
 function sumArray(nums) {
-  let total = 0;
-  for (const number of nums) {
-    total += number;
-  }
-  return total;
+	let total = 0;
+	for (const number of nums) {
+		total += number;
+	}
+	return total;
 }
 
 //#endregion Accumulator Variable
@@ -46,13 +73,42 @@ function sumArray(nums) {
  * @returns the greatest number in the given array
  */
 function findMax(nums) {
-  let max = -Infinity;
-  for (const number of nums) {
-    if (number > max) {
-      max = number;
-    }
-  }
-  return max;
+	let max = -Infinity;
+	for (const number of nums) {
+		if (number > max) {
+			max = number;
+		}
+	}
+	return max;
+}
+
+//**
+ *
+ * @param {number} n
+ */
+function sumToN(n) {
+	let sum = 0;
+	if (0 < n) {
+		let i = 0;
+		while (i++ < n) {
+			sum += i;
+		}
+	}
+	return sum;
+}
+//**
+ *
+ * @param {number} n
+ */
+function factorial(n) {
+
+}
+//**
+ *
+ * @param {number} n
+ */
+function buildNArray(n) {
+
 }
 
 //#endregion Conditional Accumulation
@@ -67,12 +123,12 @@ function findMax(nums) {
  * @returns whether the given song can be found in the playlist
  */
 function isSongInPlaylist(song, playlist) {
-  for (const s of playlist) {
-    if (s === song) {
-      return true;
-    }
-  }
-  return false;
+	for (const s of playlist) {
+		if (s === song) {
+			return true;
+		}
+	}
+	return false;
 }
 
 //#endregion Return Timing
@@ -87,15 +143,15 @@ function isSongInPlaylist(song, playlist) {
  * @returns a 2D array of the given dimensions filled with "-"
  */
 function makeBoard(cols, rows) {
-  const board = [];
-  for (let r = 0; r < rows; r++) {
-    const row = [];
-    for (let c = 0; c < cols; c++) {
-      row.push("-");
-    }
-    board.push(row);
-  }
-  return board;
+	const board = [];
+	for (let r = 0; r < rows; r++) {
+		const row = [];
+		for (let c = 0; c < cols; c++) {
+			row.push("-");
+		}
+		board.push(row);
+	}
+	return board;
 }
 
 //#endregion Nested Loops and Arrays
@@ -112,25 +168,25 @@ function makeBoard(cols, rows) {
  * Uncomment the functions as you write them.
  */
 module.exports = {
-  multiplyNumbers,
-  // vote,
-  // concatenateStrings,
-  sumArray,
-  // sumToN,
-  // factorial,
-  // buildNArray,
-  findMax,
-  // findLongestString,
-  // countPresent,
-  // getDnaComplement,
-  isSongInPlaylist,
-  // isAllEven,
-  makeBoard,
-  // evenAndOdd,
-  // exponentiate,
-  // onlyOdds,
-  // bacteriaTime,
-  // getAverage,
-  // countCoins,
-  // getPairs,
+	multiplyNumbers,
+	vote,
+	concatenateStrings,
+	sumArray,
+	sumToN,
+	factorial,
+	buildNArray,
+	findMax,
+	//findLongestString,
+	//countPresent,
+	//getDnaComplement,
+	isSongInPlaylist,
+	//isAllEven,
+	makeBoard,
+	//evenAndOdd,
+	//exponentiate,
+	//onlyOdds,
+	//bacteriaTime,
+	//getAverage,
+	//countCoins,
+	//getPairs,
 };
