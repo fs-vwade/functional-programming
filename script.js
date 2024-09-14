@@ -294,12 +294,13 @@ function onlyOdds(n) {
 }
 
 function bacteriaTime(current, target) {
+	if (!(0 < current && 0 < target)) return "values must be greater than zero";
 	if (target < current) return "target must be larger than current";
 
 	const exponent = Math.log(target) / Math.log(current);
 	let duplications = 0;
-	while (current <= target / 2) {
-		current *= 2;
+	while (0 < current && current <= target / 2) {
+		current += current;
 		duplications += 1;
 	}
 
